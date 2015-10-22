@@ -6,6 +6,7 @@ I was looking for a tool at GitHub before, found some Java projects, each of the
 
 ## What's wichtel?
 You have *x* people and you want to give each of them exactly one counterpart that is your presentee.
+It generates the drawing and sends a mail to each giver with his or her corresponding presentee.
 
 ## How does it work?
 * Define the people: `participants.properties`
