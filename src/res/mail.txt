@@ -1,0 +1,12 @@
+Hallo Weihnachtswichtel ${presenter},
+
+Heute erfährst du, wen du an Weihnachten beschenken darfst! Es handelt sich um ${presentee}.
+
+Das Geschenk soll kein Moped, Hoverboard oder Pontiac Firebird Trans Am sein. ${presentee} soll sich über eine Kleinigkeit freuen können. Ausgaben so um die 50 Euro sollten völlig reichen.
+
+Frohes Wichteln wünscht Dir
+dein Nikolaus
+
+PS: Die Zuteilung wurde automatisiert und zufällig durch den Wichtel-Mailer erstellt. Sie ist bis zur Beschenkung streng vertraulich zu behandeln!
+
+PPS: Bitte melden, falls ihr mitbekommt, dass jemand keine Mail erhalten hat! Danke!
