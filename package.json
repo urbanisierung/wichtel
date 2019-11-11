@@ -1,0 +1,28 @@
+{
+  "name": "wichtel",
+  "version": "1.0.0",
+  "description": "Send mails with randamly chosen wichtels",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "build": "tsc --p tsconfig.json",
+    "dist": "node dist/index.js",
+    "test": "jest"
+  },
+  "author": "Adam Urban",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "@types/node": "^12.7.1",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.4.0",
+    "@types/jest": "^24.0.17",
+    "jest": "^24.8.0",
+    "nyc": "^14.1.1",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
