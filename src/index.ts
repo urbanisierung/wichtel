@@ -2,13 +2,9 @@ import * as sendgrid from "@sendgrid/mail";
 
 const wichtels = [
   {
-    name: "name",
-    email: "name@mail.com"
+    name: "...",
+    email: "...",
   },
-  {
-    name: "secondName",
-    email: "secondName@mail.com"
-  }
 ];
 
 export class WichtelMaster {
@@ -21,8 +17,13 @@ export class WichtelMaster {
 
   public async send() {
     sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
-    this.toSend.forEach(async m => {
-      await this.sendOneMail(m.name, m.email, m.wichtel);
+    this.toSend.forEach(async (m) => {
+      try {
+        await this.sendOneMail(m.name, m.email, m.wichtel);
+      } catch (error) {
+        console.error(error);
+        console.log(JSON.stringify(error));
+      }
     });
   }
 
@@ -30,29 +31,30 @@ export class WichtelMaster {
     console.log("sending mail to " + name + " with wichtel " + wichtel);
     const msg = {
       to: email,
-      from: "wichtelmaster@nordpol.de",
+      from: { name: "Wichtelmaster", email: "sender@email" },
       templateId: process.env.SENDGRID_TEMPLATE_ID,
       dynamic_template_data: {
         name,
-        wichtel
-      }
+        wichtel,
+      },
     };
     await sendgrid.send(msg);
+    console.log("done");
   }
 
   private randomizeWichtels() {
     let receipiencts = wichtels;
-    wichtels.forEach(w => {
+    wichtels.forEach((w) => {
       let wichtel = receipiencts[this.random(0, receipiencts.length - 1)];
       while (w.name === wichtel.name) {
         wichtel = receipiencts[this.random(0, receipiencts.length - 1)];
       }
-      receipiencts = receipiencts.filter(r => r.name !== wichtel.name);
+      receipiencts = receipiencts.filter((r) => r.name !== wichtel.name);
 
       const item = {
         name: w.name,
         email: w.email,
-        wichtel: wichtel.name
+        wichtel: wichtel.name,
       };
       this.toSend.push(item);
     });
